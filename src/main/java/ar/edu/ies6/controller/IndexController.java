@@ -2,6 +2,9 @@ package ar.edu.ies6.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import ar.edu.ies6.model.Alumno;
 
 @Controller
 public class IndexController {
@@ -11,7 +14,30 @@ public class IndexController {
 	
 	@GetMapping ("/index")
 	public String getIndex() {
+		//codigo
+		
 		return "index";
+	}
+	
+	@GetMapping ("/alumno")
+	public ModelAndView getIndexWithAlumno() {
+		//codigo
+		Alumno unAlumno =new Alumno();
+		unAlumno.setApellido("Martinez");
+		unAlumno.setNombre("Edith");
+		unAlumno.setDni("37305495");
+		
+		
+		ModelAndView transportador = new ModelAndView("index");
+		transportador.addObject("alumno", unAlumno);
+		
+		return transportador;
+		
+		
+		
+		
+		
+
 	}
 	
 
