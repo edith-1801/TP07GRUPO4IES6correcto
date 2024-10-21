@@ -52,23 +52,27 @@
 		<h1>CARGA DE ALUMNOS</h1>
 		<br>
 		<br>
-		<form data-th-object="${alumno}">
+		<form th-object="${alumno}" th-action="@{/guardarAlumno}" method="post">
 			<div class="row">
 				<div class="col">
 					<label id="dni"> DNI</label>
-					<input type="text" data-th-field="${alumno.dni}"/>
+					<input type="text" th-field="${alumno.dni}"/>
 					
 				</div>
 				<div class="col">
 					<label>Nombre</label>
-					<input type="text" data-th-field="${alumno.nombre}"/>
+					<input type="text" th-field="${alumno.nombre}"/>
 					
 				</div>
 				<div class="col">
 					<label>Apellido</label>
-					<input type="text" data-th-field="${alumno.apellido}"/>
+					<input type="text" th-field="${alumno.apellido}"/>
 					
 				</div>
+				<div class="col">
+					
+					<input type="submit" value="Guardar Alumno"/>
+					
 			</div>
 		</form>
 	</div>
