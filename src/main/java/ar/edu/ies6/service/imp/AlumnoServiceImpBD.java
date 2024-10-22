@@ -2,28 +2,27 @@ package ar.edu.ies6.service.imp;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.ies6.model.Alumno;
+import ar.edu.ies6.repository.AlumnoRepository;
 import ar.edu.ies6.service.IAlumnoService;
-import ar.edu.ies6.util.AlmacenAlumnos;
 
 @Service
-public class AlumnoServiceImp implements IAlumnoService {
+@Qualifier("servicioAlumnoBD")
+public class AlumnoServiceImpBD implements IAlumnoService {
+
+	@Autowired
+	AlumnoRepository alumnoRepository;
 	
-	@Override 
-	@Qualifier("servicioAlumnoArrayList")
+	@Override
 	public void guardarAlumno(Alumno alumno) {
 		// TODO Auto-generated method stub
-		AlmacenAlumnos.alumnos.add(alumno);
-		
-		System.out.println("Alumnos guardados:");
-	    for (Alumno a : AlmacenAlumnos.alumnos) {
-	        System.out.println(a.getDni() + " " + a.getNombre() + " " + a.getApellido());
+		//guardar en la BD
+		alumnoRepository.save(alumno);
 	}
-	}
-
 
 	@Override
 	public void eliminarAlumno(String dni) {
@@ -46,10 +45,7 @@ public class AlumnoServiceImp implements IAlumnoService {
 	@Override
 	public List<Alumno> listarTodosAlumnos() {
 		// TODO Auto-generated method stub
-		
-		return AlmacenAlumnos.alumnos;
+		return (List<Alumno>) alumnoRepository.findAll();
 	}
-	
+
 }
-
-
