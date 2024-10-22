@@ -7,6 +7,6 @@ import ar.edu.ies6.model.Alumno;
 
 public class AlmacenAlumnos {
 	
-	public static List<Alumno> alumnos= new ArrayList<Alumno>();
+	public static List<Alumno> alumnos= new ArrayList<>();
 
 }
