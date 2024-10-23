@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Tp07Grupo4Ies6correctoApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Tp07Grupo4Ies6correctoApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(Tp07Grupo4Ies6correctoApplication.class, args);
+    }
 }
