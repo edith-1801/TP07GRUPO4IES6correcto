@@ -34,13 +34,7 @@ public class IndexController {
 	
 	@GetMapping ("/alumno")
 	public ModelAndView getIndexWithAlumno() {
-		//codigo
-		//Alumno unAlumno =new Alumno();
-		
-		//unAlumno.setApellido("Martinez");
-		//unAlumno.setNombre("Edith");
-		//unAlumno.setDni("37305495");
-		
+	
 		
 		ModelAndView transportador = new ModelAndView("index");
 		transportador.addObject("alumno", new Alumno());

@@ -1,6 +1,7 @@
 package ar.edu.ies6.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,11 @@ import ar.edu.ies6.service.IDocenteService;
 @Controller
 public class DocenteController {
     @Autowired
-    private IDocenteService docenteService;
+    Docente unDocente;
+
+    @Autowired
+    @Qualifier("servicioDocenteBD")
+    IDocenteService docenteService;
 
     @GetMapping("/docente")
     public ModelAndView getDocente() {
@@ -22,9 +27,11 @@ public class DocenteController {
     }
 
     @PostMapping("/guardarNuevoDocente")
-    public String guardarDocente(Docente docente) {
+    public ModelAndView guardarDocente(Docente docente) {
         docenteService.guardarDocente(docente);
-        return "redirect:/listaDocentes"; 
+        ModelAndView mv = new ModelAndView("redirect:/listaDocentes");
+        mv.addObject("listadoDocentes", docenteService.listarTodosDocentes());
+        return mv;
     }
 
     @GetMapping("/listaDocentes")

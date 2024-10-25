@@ -1,41 +1,44 @@
 package ar.edu.ies6.service.imp;
 
 import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
 import ar.edu.ies6.model.Docente;
+import ar.edu.ies6.repository.DocenteRepository;
 import ar.edu.ies6.service.IDocenteService;
-import ar.edu.ies6.util.AlmacenDocentes;
 
 @Service
-@Qualifier ("servicioDocenteArrayList")
-public class DocenteServiceImp implements IDocenteService {
-    
+@Qualifier("servicioDocenteBD")
+public class DocenteServiceImpBD implements IDocenteService {
+
+    @Autowired
+    DocenteRepository docenteRepository;
+
     @Override
     public void guardarDocente(Docente docente) {
-        AlmacenDocentes.docentes.add(docente);
+        docenteRepository.save(docente);
     }
 
     @Override
     public void eliminarDocente(String dni) {
-        // Implementar lógica de eliminación
+        docenteRepository.deleteById(dni);
     }
 
     @Override
     public void modificarDocente(Docente docenteModificado) {
-        // Implementar lógica de modificación
+        docenteRepository.save(docenteModificado);
     }
 
     @Override
     public Docente consultarDocente(String dni) {
-        // Implementar lógica de consulta
-        return null;
+        return docenteRepository.findById(dni).orElse(null);
     }
 
     @Override
     public List<Docente> listarTodosDocentes() {
-        return AlmacenDocentes.docentes;
+        return (List<Docente>) docenteRepository.findAll();
     }
 }
 

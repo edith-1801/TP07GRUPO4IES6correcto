@@ -1,14 +1,31 @@
 package ar.edu.ies6.model;
 
 import org.springframework.stereotype.Component;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Component
+@Entity
 public class Docente {
+
+    @Id
     private String dni;
+
+    @Column
     private String nombre;
+
+    @Column
     private String apellido;
+
+    @Column
     private String materia;
+
+    @Column
     private String legajo;
+
+    @Column
+    private Boolean estado = true;
 
     public Docente() {}
 
@@ -18,8 +35,19 @@ public class Docente {
         this.apellido = apellido;
         this.materia = materia;
         this.legajo = legajo;
+        this.estado = true; 
     }
 
+   
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    
     public String getDni() {
         return dni;
     }
@@ -60,3 +88,4 @@ public class Docente {
         this.legajo = legajo;
     }
 }
+
