@@ -11,7 +11,7 @@
 
 <body>
 	<div class="container">
-	<div th:replace="layout/header :: header"></div>
+	<div th:replace="~{layout/header :: header}"></div>
 			<h1>CARGA DE ALUMNOS</h1>
 		<br>
 		<br>
@@ -19,7 +19,7 @@
 			<div class="row">
 				<div class="col">
 					<label id="dni"> DNI</label>
-					<input type="text" th:field="${alumno.dni}"/>
+					<input type="text" th:field="${alumno.dni}" th:readonly=${band}/>
 					
 				</div>
 				<div class="col">

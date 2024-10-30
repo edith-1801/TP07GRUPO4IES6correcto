@@ -43,7 +43,7 @@ public class AlumnoServiceImpBD implements IAlumnoService {
 	@Override
 	public Alumno consultarAlumno(String dni) {
 		// TODO Auto-generated method stub
-		return null;
+		return alumnoRepository.findById(dni).get();
 	}
 
 	@Override
