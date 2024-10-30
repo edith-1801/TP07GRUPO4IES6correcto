@@ -1,6 +1,8 @@
 package ar.edu.ies6.service.imp;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,26 +21,37 @@ public class DocenteServiceImpBD implements IDocenteService {
     @Override
     public void guardarDocente(Docente docente) {
         docenteRepository.save(docente);
+        docente.setEstado (true);
+        docenteRepository.save(docente);
     }
 
     @Override
     public void eliminarDocente(String dni) {
-        docenteRepository.deleteById(dni);
+    Optional<Docente> docenteEncontrado =	docenteRepository.findById(dni);
+    docenteEncontrado.get().setEstado(false);
+    docenteRepository.save(docenteEncontrado.get());
+      
     }
 
     @Override
     public void modificarDocente(Docente docenteModificado) {
-        docenteRepository.save(docenteModificado);
+    
     }
 
     @Override
     public Docente consultarDocente(String dni) {
-        return docenteRepository.findById(dni).orElse(null);
+        return docenteRepository.findById(dni).get();
     }
 
     @Override
     public List<Docente> listarTodosDocentes() {
         return (List<Docente>) docenteRepository.findAll();
     }
+
+	@Override
+	public List<Docente> listarTodosDocenteActivos() {
+		// TODO Auto-generated method stub
+		return (List<Docente>) docenteRepository.findByEstado(true);
+	}
 }
 

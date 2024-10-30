@@ -11,4 +11,5 @@ public interface IDocenteService {
     public void modificarDocente(Docente docenteModificado);
     public Docente consultarDocente(String dni);
     public List<Docente> listarTodosDocentes();
+    public List<Docente> listarTodosDocenteActivos();
 }

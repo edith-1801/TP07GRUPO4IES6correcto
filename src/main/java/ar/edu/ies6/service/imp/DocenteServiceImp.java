@@ -19,17 +19,17 @@ public class DocenteServiceImp implements IDocenteService {
 
     @Override
     public void eliminarDocente(String dni) {
-        // Implementar lógica de eliminación
+       
     }
 
     @Override
     public void modificarDocente(Docente docenteModificado) {
-        // Implementar lógica de modificación
+        
     }
 
     @Override
     public Docente consultarDocente(String dni) {
-        // Implementar lógica de consulta
+       
         return null;
     }
 
@@ -37,5 +37,11 @@ public class DocenteServiceImp implements IDocenteService {
     public List<Docente> listarTodosDocentes() {
         return AlmacenDocentes.docentes;
     }
+
+	@Override
+	public List<Docente> listarTodosDocenteActivos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

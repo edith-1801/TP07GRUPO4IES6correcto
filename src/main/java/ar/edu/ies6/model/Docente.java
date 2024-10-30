@@ -25,7 +25,7 @@ public class Docente {
     private String legajo;
 
     @Column
-    private Boolean estado = true;
+    private Boolean estado = true; 
 
     public Docente() {}
 
@@ -35,10 +35,10 @@ public class Docente {
         this.apellido = apellido;
         this.materia = materia;
         this.legajo = legajo;
-        this.estado = true; 
+        this.estado = true;
     }
 
-   
+  
     public Boolean getEstado() {
         return estado;
     }
@@ -47,7 +47,7 @@ public class Docente {
         this.estado = estado;
     }
 
-    
+
     public String getDni() {
         return dni;
     }
