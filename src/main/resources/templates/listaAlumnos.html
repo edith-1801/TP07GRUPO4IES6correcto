@@ -11,7 +11,7 @@
 
 	<body> <div class="container-fluid">
 		
-	<div th:replace="layout/header :: header"></div>	
+	<div th:replace="~{layout/header :: header}"></div>	
 		<table class="table table-striped-columns table-primary">
 			<thead>
 				<tr>
@@ -30,7 +30,7 @@
 
 					<td>
 						<a class="btn btn-danger" th:href="@{/eliminarAlumno/{dni}(dni=${alumno.dni})}">Borrar</a>
-						<a class="btn btn-success">Editar</a>
+						<a class="btn btn-success"th:href="@{/modificarAlumno/{dni}(dni=${alumno.dni})}">Editar</a>
 					</td>
 				</tr>
 			</tbody>
