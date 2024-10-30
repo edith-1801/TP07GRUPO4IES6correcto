@@ -15,14 +15,17 @@ public class Alumno {
 	private String nombre;
 	@Column
 	private String apellido;
+	@Column
+	private Boolean estado;
 	
 	public Alumno() {}
 	
 	 // Constructor con parámetros
-    public Alumno(String dni, String nombre, String apellido) {
+    public Alumno(String dni, String nombre, String apellido, Boolean estado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.estado= estado;
     }
 	
 	 
@@ -51,6 +54,13 @@ public class Alumno {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	 public boolean isEstado() {
+	        return estado;
+	    }
+
+	    public void setEstado(boolean estado) {
+	        this.estado = estado;
+	    }
 	
 	
 		

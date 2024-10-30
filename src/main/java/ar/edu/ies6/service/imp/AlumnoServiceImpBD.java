@@ -1,6 +1,7 @@
 package ar.edu.ies6.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,13 +22,16 @@ public class AlumnoServiceImpBD implements IAlumnoService {
 	public void guardarAlumno(Alumno alumno) {
 		// TODO Auto-generated method stub
 		//guardar en la BD
+		alumno.setEstado(true);
 		alumnoRepository.save(alumno);
 	}
 
 	@Override
 	public void eliminarAlumno(String dni) {
 		// TODO Auto-generated method stub
-		
+		Optional<Alumno> alumnoEncontrado = alumnoRepository.findById(dni);
+		alumnoEncontrado.get().setEstado(false);
+		alumnoRepository.save(alumnoEncontrado.get());
 	}
 
 	@Override
@@ -46,6 +50,12 @@ public class AlumnoServiceImpBD implements IAlumnoService {
 	public List<Alumno> listarTodosAlumnos() {
 		// TODO Auto-generated method stub
 		return (List<Alumno>) alumnoRepository.findAll();
+	}
+	
+	@Override
+	public List<Alumno> listarTodosAlumnosActivos() {
+		// TODO Auto-generated method stub
+		return (List<Alumno>) alumnoRepository.findByEstado(true);
 	}
 
 }
