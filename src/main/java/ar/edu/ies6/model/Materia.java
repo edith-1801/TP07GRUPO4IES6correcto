@@ -2,15 +2,25 @@ package ar.edu.ies6.model;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 @Component
+@Entity
 
 	public class Materia {
+	
 		//atributos
+	   @Id
+	   private String codigo;
+	   @Column
         private String nombre;
-	    private String codigo;
+	   @Column
 	    private String año;
+	   @Column
 	    private String carrera;
-	    
+	   
 	    public Materia() {
 			// TODO Auto-generated constructor stub
 		}
