@@ -14,6 +14,7 @@ public interface IMateriaService {
 		public void modificarMateria(Materia materiaModificado);
 		public Materia consultarMateria(String codigo);
 		public List<Materia> listarTodosMateria();
+		public List<Materia> listarTodoMateriasActivos ();
 		
 
 

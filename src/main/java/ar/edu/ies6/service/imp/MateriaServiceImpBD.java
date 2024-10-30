@@ -1,6 +1,7 @@
 package ar.edu.ies6.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,6 +19,7 @@ public class MateriaServiceImpBD implements IMateriaService {
 	public void guardarMateria(Materia materia) {
 		// TODO Auto-generated method stub
 		//guardar en la BD
+		materia.setEstado(true);
 		materiaRepository.save(materia);
 		
 		
@@ -27,6 +29,10 @@ public class MateriaServiceImpBD implements IMateriaService {
 	public void eliminarMateria(String codigo) {
 		// TODO Auto-generated method stub
 		
+		 Optional<Materia> materiaEncontrado= materiaRepository.findById(codigo);
+		 materiaEncontrado.get().setEstado(false);
+		 materiaRepository.save(materiaEncontrado.get());
+		 
 	}
 
 	@Override
@@ -45,6 +51,12 @@ public class MateriaServiceImpBD implements IMateriaService {
 	public List<Materia> listarTodosMateria() {
 		// TODO Auto-generated method stub
 		return (List<Materia>) materiaRepository.findAll();
+	}
+
+	@Override
+	public List<Materia> listarTodoMateriasActivos() {
+		// TODO Auto-generated method stub
+		return (List<Materia>) materiaRepository.findByEstado(true);
 	}
 	
 		

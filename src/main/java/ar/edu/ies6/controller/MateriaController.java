@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.ies6.model.Materia;
@@ -36,9 +37,19 @@ public  ModelAndView guardarMateria(Materia materia) {
 materiaService.guardarMateria(materia);
 
 ModelAndView transportador = new ModelAndView("listaMateria");
-transportador.addObject ("listadoMateria", materiaService.listarTodosMateria());
+transportador.addObject ("listadoMateria", materiaService.listarTodoMateriasActivos());
  return transportador;
 }
+	//eliminar
+	@GetMapping ("/eliminarMateria/{codigo}")
+	public  ModelAndView deleteMateria (@PathVariable(name="codigo") String codigo) {
+		materiaService.eliminarMateria(codigo);
+		//mostrar el nuevo listado
+		 ModelAndView modelView = new  ModelAndView ("listaMateria");
+		 modelView.addObject ("listadoMateria", materiaService.listarTodoMateriasActivos());
+				 return modelView;
+		
+	}
 
 }
 	

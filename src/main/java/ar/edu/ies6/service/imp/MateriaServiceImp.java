@@ -44,5 +44,11 @@ public class MateriaServiceImp implements IMateriaService {
 		// TODO Auto-generated method stub
 		return AlmacenMaterias.materia;
 	}
+
+	@Override
+	public List<Materia> listarTodoMateriasActivos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 	

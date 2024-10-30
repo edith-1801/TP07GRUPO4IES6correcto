@@ -20,6 +20,9 @@ import jakarta.persistence.Id;
 	    private String año;
 	   @Column
 	    private String carrera;
+	   @Column
+	    private boolean estado;
+	   
 	   
 	    public Materia() {
 			// TODO Auto-generated constructor stub
@@ -57,6 +60,15 @@ import jakarta.persistence.Id;
 		public void setCarrera(String carrera) {
 			this.carrera = carrera;
 		}
+
+		public boolean isEstado() {
+			return estado;
+		}
+
+		public void setEstado(boolean estado) {
+			this.estado = estado;
+		}
+		
 
  }
 
