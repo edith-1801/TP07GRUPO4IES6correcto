@@ -50,7 +50,9 @@
 		</header>
 		<h1>Carga de Materias</h1>
 		<form data-th-object="${materia}" data-th-action="@{/guardarMateria}" method="post">
-		
+	<input type="hidden" data-th-if="${band}" data-th-field="${materia.codigo}">
+	
+	
 			<div class="row">
 				<div class="col">
 					<label>NOMBRE</label> <input type="text"
@@ -66,7 +68,7 @@
 				</div>
 				<div class="col">
 					<label id="codigo"> CODIGO</label> <input type="text"
-						data-th-field="${materia.codigo}" />
+						data-th-field="${materia.codigo}" data-th-readonly =${band}/>
 				</div>
 				<div class="col">
 					 <input type="submit" value="Guardar materia"/>
