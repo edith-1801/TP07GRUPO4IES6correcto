@@ -2,6 +2,7 @@ package ar.edu.ies6.service.imp;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.ies6.model.Alumno;
@@ -12,6 +13,7 @@ import ar.edu.ies6.util.AlmacenAlumnos;
 public class AlumnoServiceImp implements IAlumnoService {
 	
 	@Override 
+	@Qualifier("servicioAlumnoArrayList")
 	public void guardarAlumno(Alumno alumno) {
 		// TODO Auto-generated method stub
 		AlmacenAlumnos.alumnos.add(alumno);
