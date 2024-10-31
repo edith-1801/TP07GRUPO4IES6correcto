@@ -16,6 +16,7 @@ public interface IAlumnoService {
 	public void modificarAlumno(Alumno alumnoModificado);
 	public Alumno consultarAlumno(String dni);
 	public List<Alumno> listarTodosAlumnos();
+	public List<Alumno> listarTodosAlumnosActivos();
 	
 
 }
