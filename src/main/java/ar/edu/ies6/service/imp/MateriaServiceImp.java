@@ -2,16 +2,20 @@ package ar.edu.ies6.service.imp;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import ar.edu.ies6.model.Materia;
+import ar.edu.ies6.repository.MateriaRepository;
 import ar.edu.ies6.service.IMateriaService;
 import ar.edu.ies6.util.AlmacenMaterias;
 
 @Service
 @Qualifier ("servicioMateriaArrayList")
 public class MateriaServiceImp implements IMateriaService {
+	@Autowired
+	MateriaRepository materiaRepository;
 
 	@Override
 	public void guardarMateria(Materia materia) {

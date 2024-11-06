@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Component
 @Entity
@@ -22,7 +23,10 @@ import jakarta.persistence.Id;
 	    private String carrera;
 	   @Column
 	    private boolean estado;
+	   @ManyToOne
+	   //joinColumn ( name= "docente_dni" )
 	   
+	   private Docente docente;
 	   
 	    public Materia() {
 			// TODO Auto-generated constructor stub
