@@ -14,10 +14,12 @@
 	<div class="container">
 		<div th:replace="~{layout/header :: header}"></div>
 		<h1>Carga de Materias</h1>
-		<form data-th-object="${materia}" data-th-action="@{/guardarMateria}" method="post">
-	<input type="hidden" data-th-if="${band}" data-th-field="${materia.codigo}">
-	
-	
+		<form data-th-object="${materia}" data-th-action="@{/guardarMateria}"
+			method="post">
+			<input type="hidden" data-th-if="${band}"
+				data-th-field="${materia.codigo}">
+
+
 			<div class="row">
 				<div class="col">
 					<label>NOMBRE</label> <input type="text"
@@ -28,35 +30,39 @@
 						data-th-field="${materia.carrera}" />
 				</div>
 				<div class="col">
-				<label>CURSO</label>
-					<select id="curso" data-th-field="${materia.año}">
-    <option data-th-each="curso : ${T(ar.edu.ies6.util.Año).values()}" 
-            data-th-value="${curso}" 
-            data-th-text="${curso}">
-    </option>
-</select>
+					<label>CURSO</label> <select id="curso"
+						data-th-field="${materia.año}">
+						<option data-th-each="curso : ${T(ar.edu.ies6.util.Año).values()}"
+							data-th-value="${curso}" data-th-text="${curso}"></option>
+					</select>
 
 				</div>
 				<div class="col">
 					<label id="codigo"> CODIGO</label> <input type="text"
-						data-th-field="${materia.codigo}" data-th-readonly =${band}/>
+						data-th-field="${materia.codigo}" data-th-readonly=${band} />
 				</div>
 				<div class="col">
-			<label for="docente">Docente:</label>
-<select id="docente" name="docente" data-th-field="*{docente}">
-    <option data-th-each="d : ${docentes}"
-            data-th-value="${d.dni}" 
-            data-th-text="${d.apellido} + ' ' + ${d.nombre}">
-    </option>
-</select>
+					<label for="docente">Docente:</label> <select id="docente"
+						name="docente" data-th-field="*{docente}">
+						<option data-th-each="d : ${docentes}" data-th-value="${d.dni}"
+							data-th-text="${d.apellido} + ' ' + ${d.nombre}"></option>
+					</select>
 
 
 				</div>
 				<div class="col">
-					 <input type="submit" value="Guardar materia"/>
-						
+				<label for="alumnos">Alumnos:</label>
+				 <select multiple
+					data-th-field="*{alumnos}" id="alumnos">
+					<option data-th-each="a : ${listaAlumnos}" data-th-value="${a.dni}"
+						data-th-text="${a.apellido} + ' ' + ${a.nombre}"></option>
+				</select>
+
+				<div class="col">
+					<input type="submit" value="Guardar materia" />
+
 				</div>
-				
+
 
 			</div>
 		</form>

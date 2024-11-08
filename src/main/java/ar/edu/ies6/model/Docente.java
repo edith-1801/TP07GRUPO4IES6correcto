@@ -26,6 +26,8 @@ public class Docente {
 
     @Column
     private Boolean estado = true; 
+    //@OneToMany
+    //private List<Materia> materias;
 
     public Docente() {}
 

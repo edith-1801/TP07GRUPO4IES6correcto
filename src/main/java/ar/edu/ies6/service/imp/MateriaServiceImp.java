@@ -40,7 +40,7 @@ public class MateriaServiceImp implements IMateriaService {
 	@Override
 	public Materia consultarMateria(String codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		return materiaRepository.findById(codigo).get();
 	}
 
 	@Override
