@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
@@ -18,6 +20,7 @@ import jakarta.persistence.ManyToOne;
 	   @Column
         private String nombre;
 	   @Column
+	  
 	    private String año;
 	   @Column
 	    private String carrera;
