@@ -2,11 +2,14 @@ package ar.edu.ies6.repository;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import ar.edu.ies6.model.Docente;
 
-public interface DocenteRepository extends CrudRepository<Docente, String>{
+@Repository
+
+public interface DocenteRepository extends JpaRepository <Docente, String>{
 
 	
 	List<Docente> findByEstado(Boolean estado);

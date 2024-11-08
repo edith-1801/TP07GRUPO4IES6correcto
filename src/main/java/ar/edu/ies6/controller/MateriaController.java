@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.ies6.model.Materia;
+import ar.edu.ies6.repository.DocenteRepository;
 import ar.edu.ies6.service.IMateriaService;
 
 
@@ -19,7 +20,8 @@ public class MateriaController {
 	@Autowired
 	@Qualifier ("servicioMateriaBD")
 	IMateriaService materiaService;
-
+@Autowired
+DocenteRepository docenteRepository;
 	
 	@GetMapping ("/materias")
 	public  ModelAndView getWithMaterias() {
@@ -28,8 +30,10 @@ public class MateriaController {
 		ModelAndView transportador = new ModelAndView("formMateria");
 		transportador.addObject ("materia", unMateria);
 		transportador.addObject ("band", false);
+		transportador.addObject ("docentes", docenteRepository.findAll());
 	
 		return transportador;
+	
 	}
 	@PostMapping ("/guardarMateria")
 public  ModelAndView guardarMateria(Materia materia) {

@@ -35,11 +35,22 @@
             data-th-text="${curso}">
     </option>
 </select>
-					
+
 				</div>
 				<div class="col">
 					<label id="codigo"> CODIGO</label> <input type="text"
 						data-th-field="${materia.codigo}" data-th-readonly =${band}/>
+				</div>
+				<div class="col">
+			<label for="docente">Docente:</label>
+<select id="docente" name="docente" data-th-field="*{docente}">
+    <option data-th-each="d : ${docentes}"
+            data-th-value="${d.dni}" 
+            data-th-text="${d.apellido} + ' ' + ${d.nombre}">
+    </option>
+</select>
+
+
 				</div>
 				<div class="col">
 					 <input type="submit" value="Guardar materia"/>

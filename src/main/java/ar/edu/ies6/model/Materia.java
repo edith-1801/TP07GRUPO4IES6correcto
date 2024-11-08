@@ -4,9 +4,8 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Component
@@ -20,17 +19,15 @@ import jakarta.persistence.ManyToOne;
 	   @Column
         private String nombre;
 	   @Column
-	  
-	    private String año;
+	  private String año;
 	   @Column
 	    private String carrera;
 	   @Column
 	    private boolean estado;
 	   @ManyToOne
-	   //joinColumn ( name= "docente_dni" )
-	   
+	   @JoinColumn(name = "docente_id")
 	   private Docente docente;
-	   
+
 	    public Materia() {
 			// TODO Auto-generated constructor stub
 		}
@@ -75,6 +72,15 @@ import jakarta.persistence.ManyToOne;
 		public void setEstado(boolean estado) {
 			this.estado = estado;
 		}
+
+		public Docente getDocente() {
+			return docente;
+		}
+
+		public void setDocente(Docente docente) {
+			this.docente = docente;
+		}
+		
 		
 
  }
