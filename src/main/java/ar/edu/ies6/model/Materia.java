@@ -1,10 +1,15 @@
 package ar.edu.ies6.model;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Component
 @Entity
@@ -17,13 +22,17 @@ import jakarta.persistence.Id;
 	   @Column
         private String nombre;
 	   @Column
-	    private String año;
+	  private String año;
 	   @Column
 	    private String carrera;
 	   @Column
 	    private boolean estado;
-	   
-	   
+	   @ManyToOne
+	   @JoinColumn(name = "docente_id")
+	   private Docente docente;
+	   @ManyToMany
+	   private List<Alumno> alumnos;
+
 	    public Materia() {
 			// TODO Auto-generated constructor stub
 		}
@@ -68,6 +77,23 @@ import jakarta.persistence.Id;
 		public void setEstado(boolean estado) {
 			this.estado = estado;
 		}
+
+		public Docente getDocente() {
+			return docente;
+		}
+
+		public void setDocente(Docente docente) {
+			this.docente = docente;
+		}
+
+		public List<Alumno> getAlumnos() {
+			return alumnos;
+		}
+
+		public void setAlumnos(List<Alumno> alumnos) {
+			this.alumnos = alumnos;
+		}
+		
 		
 
  }

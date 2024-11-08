@@ -49,6 +49,13 @@ public class AlumnoServiceImp implements IAlumnoService {
 		
 		return AlmacenAlumnos.alumnos;
 	}
+
+
+	@Override
+	public List<Alumno> listarTodosAlumnosActivos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
 

@@ -1,10 +1,13 @@
 package ar.edu.ies6.model;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Component
 @Entity
@@ -17,6 +20,9 @@ public class Alumno {
 	private String apellido;
 	@Column
 	private Boolean estado;
+	@ManyToMany (mappedBy="alumnos")
+	private List<Materia> materias;
+
 	
 	public Alumno() {}
 	
@@ -61,6 +67,14 @@ public class Alumno {
 	    public void setEstado(boolean estado) {
 	        this.estado = estado;
 	    }
+
+		public List<Materia> getMaterias() {
+			return materias;
+		}
+
+		public void setMaterias(List<Materia> materias) {
+			this.materias = materias;
+		}
 	
 	
 		
