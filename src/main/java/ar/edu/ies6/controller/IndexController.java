@@ -28,6 +28,12 @@ public class IndexController {
 	
 	//SpringBoot Springframework
 	
+	// Método para la vista de bienvenida
+    @GetMapping("/inicio")
+    public String mostrarPaginaInicial() {
+        return "inicio"; // Nombre de la nueva plantilla para la bienvenida
+    }
+	
 	@GetMapping ("/index")
 	public String getIndex() {
 		//codigo

@@ -20,14 +20,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="inicio">Inicio</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item dropdown" >
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Listas
+          </a>
+          <ul class="dropdown-menu">
 
-          <a class="nav-link" href="/listadoAlumnos">Lista Alumnos</a>
-          <a class="nav-link" href="/listadoDocentes">Lista de Docentes</a>
-          <a class="nav-link" href="/listadoMateria">Lista Materia</a>
-
+          <li><a class="dropdown-item" href="/listadoAlumnos">Lista Alumnos</a></li>
+          <li><a class="dropdown-item" href="/listadoDocentes">Lista de Docentes</a></li>
+          <li><a class="dropdown-item" href="/listadoMateria">Lista Materia</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
